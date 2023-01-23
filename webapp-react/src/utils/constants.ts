@@ -29,3 +29,5 @@ export const LevelStateType = {
     state: 'Success',
   },
 };
+
+export const HostUrl: string = 'http://localhost:3001';

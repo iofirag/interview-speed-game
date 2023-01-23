@@ -1,3 +1,14 @@
+How to run:
+$ `yarn start`
+
+Tests:
+1. click start game without enter name
+2. enter name, click start game, press while loading, too soon
+2. enter name, click start game, wait untill game over, too slow
+3. enter name, click start game, wait, press wrong key, wrong key
+4. enter name, click start game, wait, press right key, enter level 2
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

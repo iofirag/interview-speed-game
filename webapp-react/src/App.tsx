@@ -1,7 +1,7 @@
 import { Box, Button, CardActions, CardContent, CardMedia, Modal, TextField, Typography } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-import { GameState, LevelStateType, ShapeSide } from './utils/constants';
+import { GameState, HostUrl, LevelStateType, ShapeSide } from './utils/constants';
 import { randomIntFromInterval } from './utils/helpers';
 
 
@@ -79,12 +79,12 @@ export default function App() {
                 clearTimeout(id)
                 setId(undefined)
                 setIsModalOpen(true)
-                fetch('http://localhost', {method: 'POST', body: JSON.stringify({name, level})})
-                .then((res)=>console.log)
-                .catch(error => console.error)
+                fetch(HostUrl, { method: 'POST', body: JSON.stringify({ name, level }) })
+                    .then((res) => console.log)
+                    .catch(error => console.error)
             }
         }
-    }, [gameState, id, userAnswer, shapeSide, level, levelInfo.state])
+    }, [gameState, id, userAnswer, shapeSide, level, levelInfo.state, name])
 
     const onChangeName = (event: any) => {
         setName(event.target.value)
@@ -119,7 +119,7 @@ export default function App() {
     return (
         <div className="App">
             {/* Header */}
-            <h1>Shape-Game</h1>
+            <h1>Speed-Game</h1>
 
             {/* Details */}
             <div>

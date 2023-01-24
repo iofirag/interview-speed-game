@@ -21,7 +21,7 @@ export default class GameResultLogic {
             const allData = this._archive.getAllResults();
             console.log(allData)
             for(const [key, nameList] of Object.entries(allData)) {
-                result.push(...nameList as any)
+                result.unshift(...nameList as any)
             }
             return result
         } catch (error) {

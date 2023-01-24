@@ -1,7 +1,7 @@
 import { Box, Button, CardActions, CardContent, CardMedia, Modal, TextField, Typography } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-import { GameResultPath, GameState, HostUrl, LevelStateType, ShapeSide } from './utils/constants';
+import { GameResultPath, GameState, HostPath, HostUrl, LevelStateType, ShapeSide } from './utils/constants';
 import { randomIntFromInterval } from './utils/helpers';
 
 
@@ -79,9 +79,10 @@ export default function App() {
                 clearTimeout(id)
                 setId(undefined)
                 setIsModalOpen(true)
-                fetch(`${HostUrl}${GameResultPath}`, { method: 'POST', body: JSON.stringify({ level, name }) })
-                    .then((res) => console.log)
-                    .catch(error => console.error)
+                fetch(`${HostUrl}${HostPath}${GameResultPath}`,
+                    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ level, name }) })
+                    .then(console.log)
+                    .catch(console.error)
             }
         }
     }, [gameState, id, userAnswer, shapeSide, level, levelInfo.state, name])
@@ -89,6 +90,13 @@ export default function App() {
     const onChangeName = (event: any) => {
         setName(event.target.value)
         setIsNameError(!event.target.value)
+    }
+
+    const onRecordDataClick = async (event: any) => {
+        fetch(`${HostUrl}${HostPath}${GameResultPath}`)
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(console.error)
     }
 
     const onRestartClick = () => {
@@ -133,6 +141,10 @@ export default function App() {
                     className='start-game-button'
                     onClick={onRestartClick}
                     disabled={[GameState.Loading, GameState.Started].includes(gameState)}>Start Game!</Button>
+                <Button variant="outlined"
+                    className='start-game-button'
+                    onClick={onRecordDataClick}
+                    >Leaderboard</Button>
             </div>
 
             {/* Image Viewer */}
@@ -170,7 +182,7 @@ export default function App() {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="small">Records Page</Button>
+                        <Button onClick={onRecordDataClick} size="small">Records Page</Button>
                     </CardActions>
                 </Box>
 

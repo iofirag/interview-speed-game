@@ -31,4 +31,5 @@ export const LevelStateType = {
 };
 
 export const HostUrl: string = 'http://localhost:3001';
+export const HostPath: string = '/api/v1';
 export const GameResultPath: string = '/game-result';

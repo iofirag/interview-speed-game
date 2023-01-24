@@ -79,8 +79,11 @@ export default function App() {
                 clearTimeout(id)
                 setId(undefined)
                 setIsModalOpen(true)
-                fetch(`${HostUrl}${HostPath}${GameResultPath}`,
-                    { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ level, name }) })
+                fetch(`${HostUrl}${HostPath}${GameResultPath}`, {
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ level, name })
+                })
                     .then(console.log)
                     .catch(console.error)
             }
@@ -143,8 +146,7 @@ export default function App() {
                     disabled={[GameState.Loading, GameState.Started].includes(gameState)}>Start Game!</Button>
                 <Button variant="outlined"
                     className='start-game-button'
-                    onClick={onRecordDataClick}
-                    >Leaderboard</Button>
+                    onClick={onRecordDataClick}>Leaderboard</Button>
             </div>
 
             {/* Image Viewer */}

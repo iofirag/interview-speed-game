@@ -1,0 +1,83 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Quickstart
+  description: Quickstart for OAS-Tools
+servers:
+- url: /api/v1
+  description: Development server
+
+paths:
+
+  /game-result:
+    x-router-controller: GameResultController
+    get:
+      operationId: 'getAllResults'
+      responses:
+        200:
+          description: get all result succeeded
+        500:
+          description: get all result error
+
+    post:
+      operationId: 'addResult'
+      description: "example-route"
+      requestBody:
+        $ref: '#/components/requestBodies/ExampleBody'
+      responses:
+        200:
+          $ref: '#/components/responses/ExampleSuccessResponse'
+        400:
+          $ref: '#/components/responses/ExampleBadResponse'
+        500:
+          $ref: '#/components/responses/ExampleBadResponse'
+
+components:
+  requestBodies:
+    ExampleBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ExampleBody'
+            
+  responses:
+    ExampleSuccessResponse:
+      description: "OK"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ExampleResponse'
+    ExampleBadResponse:
+      description: "KO"
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ExampleResponse'
+
+  parameters:
+    ExampleProp:
+      name: exampleProp
+      description: example parameter
+      in: query
+      required: true
+      schema:
+        $ref: '#/components/schemas/ExampleProp'
+
+  schemas:
+    ExampleProp:
+      type: string
+      
+    ExampleResponse:
+      type: object
+
+    ExampleBody:
+      type: object
+      properties:
+        name: 
+          type: string
+        level: 
+          type: number
+
+
+## edit with https://editor.swagger.io/

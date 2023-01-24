@@ -1,7 +1,7 @@
 import { Box, Button, CardActions, CardContent, CardMedia, Modal, TextField, Typography } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-import { GameState, HostUrl, LevelStateType, ShapeSide } from './utils/constants';
+import { GameResultPath, GameState, HostUrl, LevelStateType, ShapeSide } from './utils/constants';
 import { randomIntFromInterval } from './utils/helpers';
 
 
@@ -79,7 +79,7 @@ export default function App() {
                 clearTimeout(id)
                 setId(undefined)
                 setIsModalOpen(true)
-                fetch(HostUrl, { method: 'POST', body: JSON.stringify({ name, level }) })
+                fetch(`${HostUrl}${GameResultPath}`, { method: 'POST', body: JSON.stringify({ level, name }) })
                     .then((res) => console.log)
                     .catch(error => console.error)
             }

@@ -1,7 +1,7 @@
 import { container } from "../containerConfig";
 import { TYPES } from '../containerTypes';
 
-const gameResultController: any = container.get(TYPES.GameResultService);
+const gameResultService: any = container.get(TYPES.GameResultService);
 
-export const addResult = gameResultController.addResult.bind(gameResultController)
-export const getAllResults = gameResultController.getAllResults.bind(gameResultController)
+export const addResult = gameResultService.addResult.bind(gameResultService)
+export const getAllResults = gameResultService.getAllResults.bind(gameResultService)

@@ -3,31 +3,3 @@
     margin: 0 auto;
     padding: 0;
 }
-
-.left-image {
-    margin-right: 60%;
-}
-
-.right-image {
-    margin-left: 60%;
-}
-
-.hit {
-    border: green 10px solid;
-}
-
-.fail {
-    border: red 10px solid;
-}
-
-.image {
-    width: 100%;
-}
-
-.start-game-button {
-    height: 56px;
-}
-
-.game-over {
-    width: 100%;
-}

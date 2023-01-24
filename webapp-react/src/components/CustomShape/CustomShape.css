@@ -1,0 +1,11 @@
+.image {
+    width: 100%;
+}
+
+.hit {
+    border: green 10px solid;
+}
+
+.fail {
+    border: red 10px solid;
+}

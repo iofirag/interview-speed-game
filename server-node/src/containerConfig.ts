@@ -2,9 +2,9 @@ import * as config from 'config'
 import { Container } from "inversify";
 import path from 'path';
 import { TYPES } from "./containerTypes";
-import GameResultData from "./features/example1/GameResultData";
-import GameResultLogic from "./features/example1/GameResultLogic";
-import GameResultService from "./features/example1/GameResultService";
+import GameResultData from "./features/GameResult/GameResultData";
+import GameResultLogic from "./features/GameResult/GameResultLogic";
+import GameResultService from "./features/GameResult/GameResultService";
 import ArchiveService from './services/archiveService';
 
 console.log(config.type)

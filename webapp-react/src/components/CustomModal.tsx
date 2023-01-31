@@ -6,9 +6,7 @@ interface CustomModalProps {
     onCloseHandler: () => void;
 }
 
-export const CustomModal = (props: CustomModalProps) => {
-    const { children, isModalOpen, onCloseHandler } = props;
-
+export const CustomModal: React.FC<CustomModalProps> = ({ children, isModalOpen, onCloseHandler }) => {
     return (
         <Modal
             open={isModalOpen}

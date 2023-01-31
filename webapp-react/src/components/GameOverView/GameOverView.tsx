@@ -9,9 +9,7 @@ interface GameOverViewProps {
     onRecordDataClick: (event: any) => Promise<void>
 }
 
-export const GameOverView = (props: GameOverViewProps) => {
-    const { levelInfo, level, name, onRecordDataClick } = props;
-
+export const GameOverView: React.FC<GameOverViewProps> = ({ levelInfo, level, name, onRecordDataClick }) => {
     return (
         <>
             <CardMedia

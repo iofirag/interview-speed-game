@@ -5,9 +5,7 @@ interface ShapeViewerProps {
     shapeSide: string;
 }
 
-export const ShapeViewer = (props: ShapeViewerProps) => {
-    const { shapeSide, children } = props;
-
+export const ShapeViewer: React.FC<ShapeViewerProps> = ({ shapeSide, children }) => {
     return (
         <div className={`${shapeSide}-image`}>
             {children}

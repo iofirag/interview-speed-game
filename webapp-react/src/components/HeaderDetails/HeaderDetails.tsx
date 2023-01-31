@@ -12,9 +12,7 @@ interface HeaderDetailsProps {
     children?: any;
 }
 
-export const HeaderDetails = (props: HeaderDetailsProps) => {
-    const { name, gameState, isNameError, onChangeName, onRestartClick, onRecordDataClick } = props;
-
+export const HeaderDetails: React.FC<HeaderDetailsProps> = ({ name, gameState, isNameError, onChangeName, onRestartClick, onRecordDataClick }) => {
     return (
         <div>
             <TextField id="outlined-basic" label="Name" variant="outlined"

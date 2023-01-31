@@ -6,9 +6,7 @@ interface CustomShapeProps {
     levelInfo: { state: string };
 }
 
-export const CustomShape = (props: CustomShapeProps) => {
-    const { levelInfo } = props;
-
+export const CustomShape: React.FC<CustomShapeProps> = ({ levelInfo }) => {
     let answerClass = ''
     if (levelInfo.state === LevelStateType.Success.state) answerClass = 'hit'
     if (levelInfo.state === LevelStateType.Error1.state) answerClass = 'fail'

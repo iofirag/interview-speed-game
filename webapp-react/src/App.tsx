@@ -9,7 +9,7 @@ import { CustomShape } from './components/CustomShape/CustomShape';
 import { ShapeViewer } from './components/ShapeViewer/ShapeViewer';
 
 
-export default function App() {
+export const App: React.FC = () => {
     const [name, setName] = useState<string>('');
     const [isNameError, setIsNameError] = useState<boolean>(false);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
